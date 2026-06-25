@@ -27,6 +27,7 @@
     `;
 
     const text = document.createElement("div");
+    text.id = "Counter1234";
 
     function updateText() {
         text.textContent = `Kuverter: ${count}`;

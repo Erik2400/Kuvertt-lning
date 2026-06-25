@@ -1,4 +1,9 @@
-with open("script.js", "r") as f:
+i = "script"
+o = "Bookmarklet"
+
+
+
+with open(f"{i}.js", "r") as f:
     script = f.read()
 
 string = "javascript: "
@@ -8,5 +13,5 @@ for char in script:
     else:
         string += char
 
-with open("Bookmarklet.js", "w") as f:
+with open(f"{o}.js", "w") as f:
     f.write(string)
