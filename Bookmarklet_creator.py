@@ -1,5 +1,5 @@
-i = "script"
-o = "Bookmarklet"
+i = "Bookmarklet"
+o = "script"
 
 
 

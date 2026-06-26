@@ -43,6 +43,7 @@
         if (confirm("Er du sikker på, at du vil nulstille tælleren?")) {
             count = 0;
             localStorage.setItem(STORAGE_KEY, count);
+            localStorage.removeItem("tidsforskel");
             updateText();
         }
     };

@@ -1,0 +1,30 @@
+(() => {
+    if (!window.__xhrCounterInstalled) {
+        alert("Tælleren skal først køre");
+        return;
+    }
+    if (window.__xhrtimedif) {
+        alert("Tidsforskellen bliver allerede målt");
+        return;
+    }
+    window.__xhrtimedif = true;
+    const co = document.getElementById("Counter1234");
+    const timediv = document.createElement("div");
+    co.appendChild(timediv);
+
+    const observer = new MutationObserver(() => {
+        // Your code goes here
+        const now = new Date()
+        const prev = localStorage.getItem("tidsforskel");
+        localStorage.setItem("tidsforskel",  String(now));
+        if (prev === null) {return;}
+        const difference = (now - new Date(prev)) / 1000;
+        timediv.textContent = `Det tog ${difference.toFixed(1)} sekunder`;
+    });
+
+    observer.observe(co, { 
+        childList: true, 
+        characterData: true, 
+        subtree: true 
+    });
+})();n
