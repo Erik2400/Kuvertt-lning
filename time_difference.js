@@ -10,15 +10,14 @@
     window.__xhrtimedif = true;
     const co = document.getElementById("Counter1234");
     const timediv = document.createElement("div");
-    co.appendChild(timediv);
+    co.parentNode.insertBefore(timediv, co.nextSibling);
 
     const observer = new MutationObserver(() => {
-        // Your code goes here
-        const now = new Date()
+        const now = new Date();
         const prev = localStorage.getItem("tidsforskel");
-        localStorage.setItem("tidsforskel",  String(now));
+        localStorage.setItem("tidsforskel",  String(now.getTime()));
         if (prev === null) {return;}
-        const difference = (now - new Date(prev)) / 1000;
+        const difference = (now.getTime() - Number(prev)) / 1000;
         timediv.textContent = `Det tog ${difference.toFixed(1)} sekunder`;
     });
 
@@ -27,4 +26,4 @@
         characterData: true, 
         subtree: true 
     });
-})();n
+})();

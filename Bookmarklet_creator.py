@@ -1,9 +1,4 @@
-i = "Bookmarklet"
-o = "script"
-
-
-
-with open(f"{i}.js", "r") as f:
+with open("time_difference.js", "r") as f:
     script = f.read()
 
 string = "javascript: "
@@ -13,5 +8,5 @@ for char in script:
     else:
         string += char
 
-with open(f"{o}.js", "w") as f:
+with open("Bookmarklet_2.js", "w") as f:
     f.write(string)
